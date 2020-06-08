@@ -31,6 +31,7 @@ module.exports = {
     "comma-dangle": "off",
     "vue/no-unused-components": "off",
     "arrow-parens": "off",
-    "semi": "off"
+    "semi": "off",
+    "space-before-function-paren": "off"
   }
 }
