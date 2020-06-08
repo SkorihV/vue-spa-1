@@ -11,7 +11,7 @@
               <v-text-field
                 prepend-icon="person"
                 name="email"
-                label="email"
+                label="Почтовый ящик"
                 type="email"
                 v-model="email"
                 :rules="emailRules"
@@ -19,7 +19,7 @@
               <v-text-field
                 prepend-icon="lock"
                 name="password"
-                label="Password"
+                label="Пароль"
                 id="password"
                 type="password"
                 :counter="6"
@@ -40,21 +40,23 @@
 
 <script>
 export default {
-  data: () => ({
-    email: "",
-    password: "",
-    valid: false,
-    emailRules: [
-      v => !!v || "E-mail это поле обязательно для заполнения",
-      v =>
-        /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
-        "E-mail не валиден!"
-    ],
-    passwordRules: [
-      v => !!v || "Name is required",
-      v => (v && v.length >= 6) || "Пароль сильно маленький"
-    ]
-  }),
+  data() {
+    return {
+      email: "",
+      password: "",
+      valid: false,
+      emailRules: [
+        v => !!v || "E-mail это поле обязательно для заполнения",
+        v =>
+          /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
+          "E-mail не валиден!"
+      ],
+      passwordRules: [
+        v => !!v || "Поле обязательно для заполнения",
+        v => (v && v.length >= 6) || "Пароль сильно маленький"
+      ]
+    };
+  },
   methods: {
     onSubmit() {
       if (this.$refs.form.validate()) {
