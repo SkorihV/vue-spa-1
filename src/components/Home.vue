@@ -1,17 +1,10 @@
 <template>
-  <!-- <v-carousel>
-    <v-carousel-item
-      v-for="(item,i) in items"
-      :key="i"
-      :src="item.src"
-    ></v-carousel-item>
-  </v-carousel>-->
   <div>
     <v-container>
       <v-layout>
         <v-flex xs12>
           <v-carousel>
-            <v-carousel-item v-for="(item,i) in items" :key="item.id" :src="item.imageSrc">
+            <v-carousel-item v-for="item in ads" :key="item.id" :src="item.imageSrc">
               <div class="car-link">
                 <v-btn class="error" :to="'/ad/' + item.id">{{item.title}}</v-btn>
               </div>
@@ -22,7 +15,7 @@
     </v-container>
     <v-container grid-list-lg>
       <v-layout row wrap>
-        <v-flex xs12 sm6 md4 v-for="item in items" :key="item.id">
+        <v-flex xs12 sm6 md4 v-for="item in ads" :key="item.id">
           <v-card>
             <v-img :src="item.imageSrc" aspect-ratio="3"></v-img>
 
@@ -49,7 +42,7 @@
 export default {
   data() {
     return {
-      items: [
+      ads: [
         {
           title: "первая",
           description: "Это дискрипшин",
@@ -88,4 +81,3 @@ export default {
   border-radius: 5px 5px 0 0;
 }
 </style>>
-
