@@ -4,7 +4,7 @@
       <v-flex xs12 sm6 offset-sm3>
         <h1 class="text--secondart mb-3">Заказы</h1>
         <v-list subheader two-line>
-          <v-list-tile @click="" v-for="order in orders" :key="order.id">
+          <v-list-tile @click v-for="order in orders" :key="order.id">
             <v-list-tile-action>
               <v-checkbox :input-value="order.done" @change="markDone(order)" color="success"></v-checkbox>
             </v-list-tile-action>
