@@ -41,7 +41,7 @@ export default {
         { title: "New ad", icon: "note_add", url: "/new" },
         { title: "My ads", icon: "list", url: "/list" }
       ]
-    };
+    }
   }
 };
 </script>
