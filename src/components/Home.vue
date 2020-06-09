@@ -4,7 +4,7 @@
       <v-layout>
         <v-flex xs12>
           <v-carousel>
-            <v-carousel-item v-for="item in ads" :key="item.id" :src="item.imageSrc">
+            <v-carousel-item v-for="item in promoAds" :key="item.id" :src="item.imageSrc">
               <div class="car-link">
                 <v-btn class="error" :to="'/ad/' + item.id">{{item.title}}</v-btn>
               </div>
@@ -40,32 +40,13 @@
 
 <script>
 export default {
-  data() {
-    return {
-      ads: [
-        {
-          title: "первая",
-          description: "Это дискрипшин",
-          promo: false,
-          imageSrc: "https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg",
-          id: "123"
-        },
-        {
-          title: "Вторая",
-          description: "Это дискрипшин",
-          promo: true,
-          imageSrc: "https://cdn.vuetifyjs.com/images/carousel/sky.jpg",
-          id: "333"
-        },
-        {
-          title: "Третья",
-          description: "Это дискрипшин",
-          promo: false,
-          imageSrc: "https://cdn.vuetifyjs.com/images/carousel/bird.jpg",
-          id: "144523"
-        }
-      ]
-    };
+  computed: {
+    promoAds() {
+      return this.$store.getters.promoAds;
+    },
+    ads() {
+      return this.$store.getters.ads;
+    }
   }
 };
 </script>
