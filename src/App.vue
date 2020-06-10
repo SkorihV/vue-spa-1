@@ -28,6 +28,19 @@
     <v-content>
       <router-view></router-view>
     </v-content>
+    <template v-if="error">
+      <v-snackbar
+        :bottom="y === 'bottom'"
+        :multi-line="mode === 'multi-line'"
+        :timeout="5000"
+        color="error"
+        @input="closeError"
+        :value="true"
+      >
+        {{error}}
+        <v-btn dark flat @click.native="closeError = false">Close</v-btn>
+      </v-snackbar>
+    </template>
   </v-app>
 </template>
 
@@ -44,13 +57,23 @@ export default {
         { title: "My ads", icon: "list", url: "/list" }
       ]
     };
+  },
+  computed: {
+    error() {
+      return this.$store.getters.error;
+    }
+  },
+  methods: {
+    closeError() {
+      this.store.dispatch("clearError");
+    }
   }
 };
 </script>
 
 
 <style scoped>
-  .pointer {
-    cursor: pointer;
-  }
+.pointer {
+  cursor: pointer;
+}
 </style>
